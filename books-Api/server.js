@@ -16,6 +16,9 @@ const PORT = process.env.PORT || 3001
 //middelwear
 // app.use(express.json())
 // app.use('/books/', booksController);
+app.get('/' , (req,res)=>{
+    res.send('hello')
+})
 
  
 app.listen (PORT , ()=>{
