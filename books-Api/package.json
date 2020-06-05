@@ -17,11 +17,5 @@
     "mongoose": "^5.9.17",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0"
-<<<<<<< HEAD
-  },
-  "devDependencies": {},
-  "description": ""
-=======
   }
->>>>>>> books-Api
 }
