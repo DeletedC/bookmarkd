@@ -9,14 +9,16 @@ const MONGODB_URI =process.env.MONGODB_URL || 'mongodb://localhost:27017/books';
  ////////////////////////
 //db connection
 //////////////////////
+
 mongoose.connect(MONGODB_URI, {
    useNewUrlParser: true,
     useUnifiedTopology: true });
 db.on('open', () => {
    console.log('connected to mongoose...');
 });
+
 ////////////////////
-//middelwear
+//Middelwear
 ////////////////////
 app.use(express.json())
 app.use('/books/', booksController);
