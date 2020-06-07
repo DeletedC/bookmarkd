@@ -28,8 +28,7 @@ const App = (props) => {
           ? books.map((bookmark) => {
             return (
               <li>
-                <h2>{bookmark.title}</h2>
-                <h2>{bookmark.url}</h2>
+                <a href={bookmark.url}><h2>{bookmark.title}</h2></a>
               </li>
             );
           })
