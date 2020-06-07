@@ -59,7 +59,7 @@ const App = (props) => {
 
     const response = await fetch(`http://localhost:3001/books/${data._id}`, {
       method: 'PUT',
-      header: {
+      headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
@@ -72,23 +72,29 @@ const App = (props) => {
 
 
   return (
-    <>
-      <h1>Bookmarkd</h1>
-      <h2>Add a Bookmark</h2>
-      <Form initial={blank} handleSubmit={handleCreate}></Form>
-      <h2>Edit Bookmark</h2>
-      <Form initial={editBookmark} handleSubmit={handleEdit} />
+    <div className='container-fluid'>
+    <div className = 'grid'>
+    <header><h1>Bookmarkd</h1></header>
+    <nav>
+      <h4>Add a Bookmark</h4>
+      <Form className='form' initial={blank} handleSubmit={handleCreate}></Form>
+    </nav>
+    <article>
+      <h4>Edit Bookmark</h4>
+      <Form className='form'  initial={editBookmark} handleSubmit={handleEdit} />
+      </article>
+    <main className='container-fluid main'>
       <ul>
         {books
           ? books.map((bookmark) => {
             return (
               <li key={bookmark._id}>
-                <a href={bookmark.url}><h2>{bookmark.title}</h2></a>
-                <button onClick={() => {handleDelete(bookmark._id);}}>
+                <a href={bookmark.url}><h4>{bookmark.title}</h4></a>
+                <button class="btn btn-link" onClick={() => {handleDelete(bookmark._id);}}>
                   X
                 </button>
-                <button onClick={() => {handleSelect(bookmark)}}>
-                  Edit
+                <button class="btn btn-link" onClick={() => {handleSelect(bookmark)}}>
+                  E
                 </button>
               </li>
             );
@@ -96,7 +102,10 @@ const App = (props) => {
           : "Loading..."
         }
       </ul>
-    </>
+      </main>
+      <footer> copyright </footer>
+    </div>
+    </div>
   );
 }
 

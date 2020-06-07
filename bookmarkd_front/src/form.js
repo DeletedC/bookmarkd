@@ -1,4 +1,5 @@
 import React from 'react';
+import "./css/style.css";
 
 export default (props) => {
     const [formData, setFormData] = React.useState(props.initial);
@@ -19,6 +20,7 @@ export default (props) => {
                 value={formData.title}
                 placeholder="Title"
                 onChange={handleChange}
+                class="form-control"
             />
             <input
                 type="text"
@@ -26,8 +28,10 @@ export default (props) => {
                 value={formData.url}
                 placeholder="URL"
                 onChange={handleChange}
+                class="form-control"
             />
             <button
+                class="btn btn-secondary"
                 onClick={() => {
                     props.handleSubmit(formData);
                     setFormData(props.initial);
