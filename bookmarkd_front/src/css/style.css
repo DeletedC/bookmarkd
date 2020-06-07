@@ -1,6 +1,5 @@
 *{
-    font-family: 'Architects Daughter', cursive;
-font-family: 'Lobster', cursive;
+   
 }
 .grid{
     display: grid;
@@ -19,6 +18,8 @@ header{
     padding-top: 20px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    font-family: 'Architects Daughter', cursive;
+    font-family: 'Lobster', cursive;
 }
 header > h1{
     text-align: right;
@@ -33,6 +34,10 @@ nav{
     padding-right: 200px;
     padding-left: 150px;
     padding-top: 10px;
+}
+h4{
+    font-family: 'Architects Daughter', cursive;
+    font-family: 'Lobster', cursive;
 }
 article{
     grid-area:art;
@@ -62,12 +67,13 @@ footer{
     list-style: none;
     
 }
-li{
+li {
     display: flex;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 a{
     color: rgb(51, 96, 60);
-    
+     
 }
 
 
