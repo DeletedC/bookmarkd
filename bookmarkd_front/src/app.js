@@ -13,6 +13,11 @@ const App = (props) => {
     url: ''
   }
 
+  // Hook to get the bookmarks when the component loads
+  React.useEffect(() => {
+    getInfo();
+  }, []);
+
   // Get the bookmarks from the API
   const getInfo = async () => {
     const response = await fetch('http://localhost:3001/books');
@@ -21,17 +26,23 @@ const App = (props) => {
     setBooks(result);
   };
 
-  // Hook to get the bookmarks when the component loads
-  React.useEffect(() => {
-    getInfo();
-  }, []);
-
+  const handleCreate = async (data) => {
+    const response = await fetch('http://localhost:3001/books', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    
+    getInfo(); // Update the list of bookmarks
+  };
 
   return (
     <>
       <h1>Bookmarkd</h1>
       <h2>Add a Bookmark</h2>
-      <Form initial={blank}></Form>
+      <Form initial={blank} handleSubmit={handleCreate}></Form>
       <ul>
         {books
           ? books.map((bookmark) => {
