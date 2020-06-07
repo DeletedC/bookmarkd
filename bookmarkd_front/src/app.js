@@ -38,6 +38,13 @@ const App = (props) => {
     getInfo(); // Update the list of bookmarks
   };
 
+  const handleDelete = async (id) => {
+    const response = await fetch('http://localhost:3001/books', {
+      method: "DELETE",
+    });
+    getInfo(); // Update the list of bookmarks
+  };
+
   return (
     <>
       <h1>Bookmarkd</h1>
@@ -49,6 +56,9 @@ const App = (props) => {
             return (
               <li>
                 <a href={bookmark.url}><h2>{bookmark.title}</h2></a>
+                <button onClick={() => {handleDelete(bookmark._id);}}>
+                  Delete
+                </button>
               </li>
             );
           })
