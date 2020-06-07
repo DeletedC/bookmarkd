@@ -15,7 +15,7 @@ const App = (props) => {
 
   // Holds blank form data
   const blank = {
-    name: '',
+    title: '',
     url: ''
   }
 
@@ -51,6 +51,24 @@ const App = (props) => {
     getInfo(); // Update the list of bookmarks
   };
 
+  const handleSelect = async (bookmark) => {
+    setEditBookmark(bookmark);
+  };
+
+  const handleEdit = async (data) => {
+
+    const response = await fetch(`http://localhost:3001/books/${data._id}`, {
+      method: 'PUT',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    console.log(data);
+    // Update list of bookmarks
+    getInfo();
+  };
+
 
 
   return (
@@ -58,6 +76,8 @@ const App = (props) => {
       <h1>Bookmarkd</h1>
       <h2>Add a Bookmark</h2>
       <Form initial={blank} handleSubmit={handleCreate}></Form>
+      <h2>Edit Bookmark</h2>
+      <Form initial={editBookmark} handleSubmit={handleEdit} />
       <ul>
         {books
           ? books.map((bookmark) => {
@@ -66,6 +86,9 @@ const App = (props) => {
                 <a href={bookmark.url}><h2>{bookmark.title}</h2></a>
                 <button onClick={() => {handleDelete(bookmark._id);}}>
                   X
+                </button>
+                <button onClick={() => {handleSelect(bookmark)}}>
+                  Edit
                 </button>
               </li>
             );
