@@ -89,7 +89,7 @@ const App = (props) => {
           ? books.map((bookmark) => {
             return (
               <li key={bookmark._id}>
-                <a href={bookmark.url}><h4>{bookmark.title}</h4></a>
+                <a href={bookmark.url}><h5>{bookmark.title}</h5></a>
                 <button class="btn btn-link" onClick={() => {handleDelete(bookmark._id);}}>
                   X
                 </button>
@@ -103,7 +103,7 @@ const App = (props) => {
         }
       </ul>
       </main>
-      <footer> copyright </footer>
+      <footer><h4>copyright </h4></footer>
     </div>
     </div>
   );
