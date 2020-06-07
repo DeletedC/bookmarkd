@@ -1,10 +1,17 @@
 import React from "react";
-import "./style.css";
+import "./css/style.css";
+import Form from "./form.js";
 
 const App = (props) => {
 
   // State to hold the bookmarks
   const [books, setBooks] = React.useState(null);
+
+  // Holds blank form data
+  const blank = {
+    name: '',
+    url: ''
+  }
 
   // Get the bookmarks from the API
   const getInfo = async () => {
@@ -23,6 +30,8 @@ const App = (props) => {
   return (
     <>
       <h1>Bookmarkd</h1>
+      <h2>Add a Bookmark</h2>
+      <Form initial={blank}></Form>
       <ul>
         {books
           ? books.map((bookmark) => {
