@@ -1,10 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style.css";
 
-class App extends Component {
-  render() {
-    return <div className="App">Hello World</div>;
-  }
+const App = (props) => {
+
+
+
+  return (
+    <>
+      <h1>Bookmarkd</h1>
+    </>
+  );
 }
 
 export default App;
