@@ -15,8 +15,8 @@ export default (props) => {
         <>
             <input
                 type="text"
-                name="name"
-                value={formData.name}
+                name="title"
+                value={formData.title}
                 placeholder="Title"
                 onChange={handleChange}
             />

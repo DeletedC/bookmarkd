@@ -7,6 +7,12 @@ const App = (props) => {
   // State to hold the bookmarks
   const [books, setBooks] = React.useState(null);
 
+  // State to hold the bookmark the user wants to edit
+  const [editBookmark, setEditBookmark] = React.useState({
+    title: '',
+    url: ''
+  });
+
   // Holds blank form data
   const blank = {
     name: '',
@@ -39,11 +45,13 @@ const App = (props) => {
   };
 
   const handleDelete = async (id) => {
-    const response = await fetch('http://localhost:3001/books', {
+    const response = await fetch(`http://localhost:3001/books/${id}`, {
       method: "DELETE",
     });
     getInfo(); // Update the list of bookmarks
   };
+
+
 
   return (
     <>
@@ -54,10 +62,10 @@ const App = (props) => {
         {books
           ? books.map((bookmark) => {
             return (
-              <li>
+              <li key={bookmark._id}>
                 <a href={bookmark.url}><h2>{bookmark.title}</h2></a>
                 <button onClick={() => {handleDelete(bookmark._id);}}>
-                  Delete
+                  X
                 </button>
               </li>
             );
