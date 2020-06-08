@@ -73,7 +73,7 @@ const App = (props) => {
 
   return (
     <div className='container-fluid'>
-    <div className = 'grid'>
+    <div className='grid'>
     <header><h1>Bookmarkd</h1></header>
     <nav>
       <h4>Add a Bookmark</h4>
@@ -90,10 +90,10 @@ const App = (props) => {
             return (
               <li key={bookmark._id}>
                 <a href={bookmark.url}><h5>{bookmark.title}</h5></a>
-                <button class="btn btn-link" onClick={() => {handleDelete(bookmark._id);}}>
+                <button className="btn btn-link" onClick={() => {handleDelete(bookmark._id);}}>
                   Delete
                 </button>
-                <button class="btn btn-link" onClick={() => {handleSelect(bookmark)}}>
+                <button className="btn btn-link" onClick={() => {handleSelect(bookmark)}}>
                   Edit
                 </button>
               </li>
