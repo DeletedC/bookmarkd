@@ -33,7 +33,7 @@ const App = (props) => {
   };
 
   const handleCreate = async (data) => {
-    const response = await fetch('http://localhost:3001/books', {
+    await fetch('http://localhost:3001/books', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ const App = (props) => {
   };
 
   const handleDelete = async (id) => {
-    const response = await fetch(`http://localhost:3001/books/${id}`, {
+    await fetch(`http://localhost:3001/books/${id}`, {
       method: "DELETE",
     });
     getInfo(); // Update the list of bookmarks
@@ -57,7 +57,7 @@ const App = (props) => {
 
   const handleEdit = async (data) => {
 
-    const response = await fetch(`http://localhost:3001/books/${data._id}`, {
+    await fetch(`http://localhost:3001/books/${data._id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

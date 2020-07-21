@@ -20,7 +20,7 @@ export default (props) => {
                 value={formData.title}
                 placeholder="Title"
                 onChange={handleChange}
-                class="form-control"
+                className="form-control"
             />
             <input
                 type="text"
@@ -28,10 +28,10 @@ export default (props) => {
                 value={formData.url}
                 placeholder="URL"
                 onChange={handleChange}
-                class="form-control"
+                className="form-control"
             />
             <button
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 onClick={() => {
                     props.handleSubmit(formData);
                     setFormData(props.initial);
