@@ -74,7 +74,7 @@ const App = (props) => {
   return (
     <div className='container-fluid'>
     <div className='grid'>
-    <header><h1>Bookmarkd</h1></header>
+    <header><h1>Bookmarkd App</h1></header>
     <nav>
       <h4>Add a Bookmark</h4>
       <Form className='form' initial={blank} handleSubmit={handleCreate}></Form>
